@@ -7,3 +7,11 @@
 ```
 go run app.go
 ```
+
+### turn project into module
+```
+go mod init example.com/first-app
+```
+```
+go build
+```
