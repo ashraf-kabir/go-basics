@@ -26,3 +26,7 @@ go build
 ## To run a go function in dev mode
 1. ```go run investment_calculator.go``` 
 2. ```go run .``` -> when go.mod is present
+
+#### Create a new module
+1. Create a new folder named `first-app`
+2. run command `go mod init example.com/first-app`
