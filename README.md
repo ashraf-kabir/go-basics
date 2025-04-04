@@ -30,3 +30,7 @@ go build
 #### Create a new module
 1. Create a new folder named `first-app`
 2. run command `go mod init example.com/first-app`
+
+### To run bank.go
+1. ```cd bank```
+2. ```go run .```
