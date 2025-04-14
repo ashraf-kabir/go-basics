@@ -34,3 +34,5 @@ go build
 ### To run bank.go
 1. ```cd bank```
 2. ```go run .```
+3. ```go get github.com/Pallinder/go-randomdata```
+4. ```go get``` // will look into go.mod file and install all third-party packages
