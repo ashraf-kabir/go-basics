@@ -5,13 +5,17 @@ import "fmt"
 func main() {
 	age := 32 // regular variable
 
-	fmt.Println("Age: ", age)
+	agePointer := &age // address of age, pointer
 
-	adultYears := getAdultYears(age)
+	fmt.Println("age: ", age)
+	fmt.Println("agePointer: ", agePointer) // prints age pointer
+	fmt.Println("age: ", *agePointer) // prints age, de-reference
+
+	adultYears := getAdultYears(&age)
 	fmt.Println(adultYears)
 }
 
-// without pointers -> a copy of age created here
-func getAdultYears(age int) int {
-	return age - 18
+// avoiding a copy of integer by using pointer
+func getAdultYears(age *int) int {
+	return *age - 18
 }
