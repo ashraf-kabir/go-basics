@@ -15,9 +15,9 @@ type User struct {
 
 // struct embedding
 type Admin struct {
-	email string
+	email    string
 	password string
-	User User
+	User
 }
 
 func (u *User) OutputUserDetails() {
@@ -31,12 +31,12 @@ func (u *User) ClearUsername() {
 }
 
 func NewAdmin(email, password string) Admin {
-	return Admin {
-		email: email,
+	return Admin{
+		email:    email,
 		password: password,
 		User: User{
 			firstName: "ADMIN",
-			lastName: "ADMIN",
+			lastName:  "ADMIN",
 			birthDate: "------",
 			createdAt: time.Now(),
 		},
