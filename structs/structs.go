@@ -7,14 +7,19 @@ import (
 
 type user struct {
 	firstName string
-	lastName string
+	lastName  string
 	birthdate string
 	createdAt time.Time
 }
 
-func (u user) outputUserDetails() {
+func (u *user) outputUserDetails() {
 	// receiver argument
 	fmt.Println(u.firstName, u.lastName, u.createdAt)
+}
+
+func (u *user) clearUsername() {
+	u.firstName = ""
+	u.lastName = ""
 }
 
 func main() {
@@ -29,6 +34,8 @@ func main() {
 		time.Now(),
 	}
 
+	appUser.outputUserDetails()
+	appUser.clearUsername()
 	appUser.outputUserDetails()
 }
 
