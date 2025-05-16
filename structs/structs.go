@@ -8,7 +8,7 @@ import (
 type user struct {
 	firstName string
 	lastName  string
-	birthdate string
+	birthDate string
 	createdAt time.Time
 }
 
@@ -22,17 +22,22 @@ func (u *user) clearUsername() {
 	u.lastName = ""
 }
 
+// returning a pointer instead of values
+func newUser(firstName, lastName, birthDate string) *user {
+	return &user{
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthDate,
+		createdAt: time.Now(),
+	}
+}
+
 func main() {
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
-	birthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
+	birthDate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var appUser = user{
-		firstName,
-		lastName,
-		birthdate,
-		time.Now(),
-	}
+	var appUser = newUser(firstName, lastName, birthDate)
 
 	appUser.outputUserDetails()
 	appUser.clearUsername()
