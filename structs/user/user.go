@@ -13,6 +13,13 @@ type User struct {
 	createdAt time.Time
 }
 
+// struct embedding
+type Admin struct {
+	email string
+	password string
+	User User
+}
+
 func (u *User) OutputUserDetails() {
 	// receiver argument
 	fmt.Println(u.firstName, u.lastName, u.createdAt)
@@ -21,6 +28,19 @@ func (u *User) OutputUserDetails() {
 func (u *User) ClearUsername() {
 	u.firstName = ""
 	u.lastName = ""
+}
+
+func NewAdmin(email, password string) Admin {
+	return Admin {
+		email: email,
+		password: password,
+		User: User{
+			firstName: "ADMIN",
+			lastName: "ADMIN",
+			birthDate: "------",
+			createdAt: time.Now(),
+		},
+	}
 }
 
 // constructor: exporting a pointer instead of values
