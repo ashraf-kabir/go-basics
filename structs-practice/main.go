@@ -95,3 +95,8 @@ func outputData(data outputtable) error {
 	data.Display()
 	return saveData(data)
 }
+
+// any value allowed
+func printSomething(value any) {
+	fmt.Println(value)
+}
