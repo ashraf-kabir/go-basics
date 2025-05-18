@@ -98,14 +98,26 @@ func outputData(data outputtable) error {
 
 // any value allowed, switch statement
 func printSomething(value any) {
-	switch value.(type) {
-	case int:
-		fmt.Println("Integer ", value)
-	case string:
-		fmt.Println("String ", value)
-	case float64:
-		fmt.Println("Float64 ", value)
-	default:
-		fmt.Println("Unknown type ", value)
+	//switch value.(type) {
+	//case int:
+	//	fmt.Println("Integer ", value)
+	//case string:
+	//	fmt.Println("String ", value)
+	//case float64:
+	//	fmt.Println("Float64 ", value)
+	//default:
+	//	fmt.Println("Unknown type ", value)
+	//}
+
+	intVal, ok := value.(int)
+	if ok {
+		//intVal + 1
+		fmt.Println("Integer: ", intVal)
+		return
+	}
+
+	floatVal, ok := value.(float64)
+	if ok {
+		fmt.Println("Float: ", floatVal)
 	}
 }
