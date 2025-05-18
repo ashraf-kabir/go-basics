@@ -10,20 +10,13 @@ import (
 	"example.com/note/todo"
 )
 
-func getNoteData() (string, string) {
-	title := getUserInput("Note title:")
-	content := getUserInput("Note content:")
-	return title, content
-}
-
-func getTodoData() string {
-	text := getUserInput("Todo text:")
-	return text
+type saver interface {
+	Save() error
 }
 
 func main() {
 	title, content := getNoteData()
-	todoText := getUserInput("Todo text")
+	todoText := getUserInput("Todo text:")
 
 	todo, err := todo.New(todoText)
 	if err != nil {
@@ -38,24 +31,16 @@ func main() {
 	}
 
 	todo.Display()
-	err = todo.Save()
-
+	err = userNote.Save()
 	if err != nil {
-		fmt.Println("Saving the todo failed.")
 		return
 	}
-
-	fmt.Println("Saving the todo succeeded!")
 
 	userNote.Display()
-	err = userNote.Save()
-
+	err = saveData(userNote)
 	if err != nil {
-		fmt.Println("Saving note failed.")
 		return
 	}
-
-	fmt.Println("Note saved successfully.")
 }
 
 func getUserInput(prompt string) string {
@@ -73,4 +58,22 @@ func getUserInput(prompt string) string {
 	text = strings.TrimSuffix(text, "\r")
 
 	return text
+}
+
+func getNoteData() (string, string) {
+	title := getUserInput("Note title:")
+	content := getUserInput("Note content:")
+	return title, content
+}
+
+func saveData(data saver) error {
+	err := data.Save()
+
+	if err != nil {
+		fmt.Println("Saving data failed.")
+		return err
+	}
+
+	fmt.Println("Date saved successfully.")
+	return nil
 }
