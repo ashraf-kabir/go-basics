@@ -17,6 +17,10 @@ func main() {
 	fmt.Println(len(productNames))
 
 	// Slices
-	featuredPrices := prices[0:2] // take index 0 & 1
-	fmt.Println(featuredPrices)
+	featuredPrices1 := prices[0:2] // start from index 0 and ends before index 2
+	featuredPrices2 := prices[:2]  // start from beginning and ends before index 2
+	featuredPrices3 := prices[1:]  // start index 1 and ends at the end
+	fmt.Println(featuredPrices1)
+	fmt.Println(featuredPrices2)
+	fmt.Println(featuredPrices3)
 }
