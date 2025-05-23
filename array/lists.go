@@ -44,6 +44,10 @@ func main() {
 	//prices[3] = 2.56
 	//fmt.Println(prices)
 
-	updatedPrices := append(prices, 4.99) // add a new element to the slice
+	updatedPrices := append(prices, 4.99, 23.21) // add new elements to the slice
 	fmt.Println(updatedPrices, prices)
+
+	discountPrices := []float64{2.33, 4.55, 6.77}
+	prices = append(prices, discountPrices...)
+	fmt.Println(prices)
 }
