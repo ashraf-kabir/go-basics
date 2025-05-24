@@ -12,7 +12,7 @@ func main() {
 	//userNames := []string{}
 	userNames := make([]string, 2, 5) // type, length, capacity
 
-	userNames[0] = "Max"
+	userNames[0] = "Jason"
 
 	userNames = append(userNames, "John")
 	userNames = append(userNames, "Jane")
@@ -29,4 +29,14 @@ func main() {
 
 	//fmt.Println(courseRatings)
 	courseRatings.output()
+
+	for index, value := range userNames {
+		fmt.Println("index:", index)
+		fmt.Println("value:", value)
+	}
+
+	for key, value := range courseRatings {
+		fmt.Println("key:", key)
+		fmt.Println("value:", value)
+	}
 }
