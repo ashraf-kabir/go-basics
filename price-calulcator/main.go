@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"price-calulcator/filemanager"
+	"price-calulcator/cmdmanager"
 	"price-calulcator/prices"
 )
 
@@ -10,8 +9,9 @@ func main() {
 	taxRates := []float64{0.4, 0.5, 0.6}
 
 	for _, taxRate := range taxRates {
-		fm := filemanager.New("prices.txt", fmt.Sprintf("result_%.0f.json", taxRate*100))
-		priceJob := prices.NewTaxIncludedPriceJob(fm, taxRate)
+		// fm := filemanager.New("prices.txt", fmt.Sprintf("result_%.0f.json", taxRate*100))
+		cmdm := cmdmanager.New()
+		priceJob := prices.NewTaxIncludedPriceJob(cmdm, taxRate)
 		priceJob.Process()
 	}
 }
